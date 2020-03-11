@@ -1,11 +1,11 @@
 ARNN
 Run ARNN algorithm:
 
-file folder: Main codes
+sample_code_ARNN.m
 
 Test the ARNN Robustness:
 
-file folder: Robustness test
+Robust_test.m
 
 prediction results show:
 

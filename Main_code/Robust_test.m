@@ -3,7 +3,7 @@ clear;
 close all;
 
 %%%%%%%%%%%%%%%%%%     example:  wind speed   %%%%%%%%%%%%
-load scaled_windspeed_a;
+scaled_windspeed_a=load('wind_speed.txt');
 
 mypred_len=[51,31,21,11];       
 ii=1;   % init time point

@@ -5,7 +5,7 @@ close all;
 %%%%%%%%%%%%%%%%%%     example:  wind speed   %%%%%%%%%%%%
 load scaled_windspeed_a;
 
-mypred_len=[51,31,21,11];          %  length of steps
+mypred_len=[51,31,21,11];       
 ii=1;   % init time point
 
 for plen=1:length(mypred_len)
@@ -14,12 +14,12 @@ for plen=1:length(mypred_len)
     X=scaled_windspeed_a+noisestrength*rand(size(scaled_windspeed_a));% noise could be added
     xx=X(:,ii:end);% after transient dynamics;
     
-    trainlength=120;      % length of training data (observed data), m
-    D=155;       %size(traindata,1);   % number of variables in the system.
-    k=60;         % embedding dimension, which could be determined using FNN or set empirically
+    trainlength=120;      
+    D=155;      
+    k=60;        
     
     predict_len=mypred_len(plen);     % L
-    jd=1;         % the index of target variable
+    jd=1;        
     real_y=xx(jd,:);
     cycles=floor(size(xx,2)/(predict_len-1));
     final_predict_ARNN=zeros(cycles*(predict_len-1),1);
@@ -53,7 +53,6 @@ for plen=1:length(mypred_len)
             
         end
         
-        %%%%%%%%%%%%%%%%%%%%%%%%%%  side prediction based on B  %%%%%%%%%%%%%%%%%%%%%%%%%
         clear super_bb super_AA;
         for i=1:size(traindata_x_NN,1)
             kt=0;

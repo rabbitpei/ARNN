@@ -43,16 +43,16 @@ for ii=ii_set
     end
     
     w_flag=zeros(size(traindata_x_NN,1));
-    A=zeros(predict_len,size(traindata_x_NN,1));   % matrix A
-    B=zeros(size(traindata_x_NN,1),predict_len);   % matrix B
+    A=zeros(predict_len,size(traindata_x_NN,1));   
+    B=zeros(size(traindata_x_NN,1),predict_len);  
     for iter=1:1000         % cal coeffcient B
         random_idx=sort([jd,randsample(setdiff(1:size(traindata_x_NN,1),jd),k-1)]);
-        traindata_x=traindata_x_NN(random_idx,1:trainlength);        % random chose k variables from F(D)
+        traindata_x=traindata_x_NN(random_idx,1:trainlength);       
         
         clear super_bb super_AA;
         for i=1:size(traindata_x,1)
             %  Ax=b,  1: x=pinv(A)*b,    2: x=A\b,    3: x=lsqnonneg(A,b)
-            b=traindata_x(i,1:trainlength-predict_len+1)';     % 1*(m-L+1)
+            b=traindata_x(i,1:trainlength-predict_len+1)';     
             clear B_w;
             for j=1:trainlength-predict_len+1
                 B_w(j,:)=traindata_y(j:j+predict_len-1);
@@ -63,9 +63,7 @@ for ii=ii_set
         end
        
     end
-    
-    %%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%  side prediction based on B  %%%%%%%%%%%%%%%%%%%%%%%%%
+   
     clear super_bb super_AA;
     for i=1:size(traindata_x_NN,1)
         kt=0;
@@ -87,9 +85,7 @@ for ii=ii_set
     end
 
     pred_y_tmp=(super_AA\super_bb')';
-    
-    %%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%  Final prediction  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
     tmp_y=[real_y(1:trainlength), pred_y_tmp];
     for j=1:predict_len
         Ym(j,:)=tmp_y(j:j+trainlength-1);

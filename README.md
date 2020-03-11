@@ -7,7 +7,7 @@ Test the ARNN Robustness:
 
 Robust_test.m
 
-prediction results show:
+Dynamic prediction results show:
 
 Movie1: typhoon prediction,
 

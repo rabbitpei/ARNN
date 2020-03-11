@@ -27,7 +27,7 @@ for ii=ii_set
     
     k=60;  % embedding dimension, which could be determined using FNN or set empirically
     
-    predict_len=19;     % L
+    predict_len=4;     % L
     
     jd=1; % the index of target variable
     

@@ -13,6 +13,11 @@ Movie1: typhoon prediction,
 
 Movie2: traffic prediction
 
+Data resources:
+
+folder: Data, which includes gene expression, HK hospital admission, Ozone(tempreture and SLP), Solar, wind speed, stock, traffic, typhoon.
+
+
 Note:
 
 For windspeed dataset, unzip the compressed files first, then
